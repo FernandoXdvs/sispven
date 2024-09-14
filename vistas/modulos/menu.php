@@ -23,7 +23,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false">
             <!--Home-->
             <li class="nav-item">
-                <a href="#" class="nav-link active mx-auto">
+                <a href="inicio" class="nav-link active mx-auto">
                     <i class="nav-icon fa fa-home"></i>
                     <p>
                         Inicio
@@ -32,7 +32,7 @@
             </li>
             <!--Gestor de usuarios-->
             <li class="nav-item">
-                <a href="#" class="nav-link  mx-auto">
+                <a href="usuarios" class="nav-link  mx-auto">
                     <i class="nav-icon fa fa-user"></i>
                     <p>
                         Usuarios
@@ -41,7 +41,7 @@
             </li>
             <!--Categorias-->
             <li class="nav-item">
-                <a href="#" class="nav-link  mx-auto">
+                <a href="categorias" class="nav-link  mx-auto">
                     <i class="nav-icon fa fa-th"></i>
                     <p>
                         Categorías
@@ -50,7 +50,7 @@
             </li>
             <!--Productos-->
             <li class="nav-item">
-                <a href="#" class="nav-link  mx-auto">
+                <a href="productos" class="nav-link  mx-auto">
                     <i class="nav-icon fa fa-store"></i>
                     <p>
                         Productos
@@ -59,7 +59,7 @@
             </li>
             <!--Clientes-->
             <li class="nav-item">
-                <a href="#" class="nav-link  mx-auto">
+                <a href="clientes" class="nav-link  mx-auto">
                     <i class="nav-icon fa fa-users"></i>
                     <p>
                         Clientes
@@ -77,19 +77,19 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="ventas" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Administrar Ventas</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="crear-venta" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Crear Venta</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="reportes" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Reporte de ventas</p>
                         </a>
