@@ -35411,7 +35411,6 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  background-color: #e9ecef;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -35422,6 +35421,18 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+}
+
+.login-page #back{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100vh;
+  background-image: linear-gradient(135deg,rgba(255,255,255,.7) 0% 50%, rgba(20,80,0,.8)),url(../../img/plantilla/back.jpg);
+  background-size: cover;
+  overflow:hidden;
+  z-index:-1;
 }
 
 .login-box,

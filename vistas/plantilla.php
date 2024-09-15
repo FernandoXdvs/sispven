@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,6 +8,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sispven | Punto de venta</title>
+
+  <link rel="icon" href="vistas/img/plantilla/minlogo.png">
 
   <!--===============================
   PLUGINS DE CSS
@@ -35,11 +40,11 @@
   CUERPO DOCUMENTO
   =================================-->
 
-<body class="hold-transition sidebar-mini sidebar-collapse">
-  <!-- Site wrapper -->
-  <div class="wrapper">
-    <!-- Navbar -->
-    <?php
+<body class="hold-transition sidebar-mini sidebar-collapse login-page">
+
+  <?php
+  if (isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok") {
+    echo '<div class="wrapper">';
     /**Header o cabecera */
     include "modulos/header.php";
     /**Menu lateral */
@@ -54,10 +59,13 @@
         $_GET["ruta"] == "clientes" ||
         $_GET["ruta"] == "ventas" ||
         $_GET["ruta"] == "crear-venta" ||
-        $_GET["ruta"] == "reportes"
+        $_GET["ruta"] == "reportes" ||
+        $_GET["ruta"] == "salir" 
       ) {
         /**Contenido principal */
         include "modulos/" . $_GET["ruta"] . ".php";
+      } else {
+        include "modulos/404.php";
       }
     } else {
       /**Contenido principal */
@@ -68,27 +76,16 @@
 
     /**Footer */
     include "modulos/footer.php";
-    ?>
-
-    <!-- /.navbar -->
-
-    <!-- Main Sidebar Container -->
 
 
-    <!-- Content Wrapper. Contains page content -->
-
-    <!-- /.content-wrapper -->
-
-    <!--FOOTER-->
-
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
+    echo '<aside class="control-sidebar control-sidebar-dark">
       <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
-  </div>
-  <!-- ./wrapper -->
-
+    </aside>';
+    echo '</div>';
+  } else {
+    include "modulos/login.php";
+  }
+  ?>
 
 </body>
 
