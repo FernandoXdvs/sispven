@@ -21,7 +21,14 @@ session_start();
   <!-- Font Awesome -->
   <link rel="stylesheet" href="vistas/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="vistas\dist\css\adminlte.css"> 
+  <link rel="stylesheet" href="vistas\dist\css\adminlte.css">
+  <!--Datatables-->
+  <link rel="stylesheet" href="./vistas/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="./vistas/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="./vistas/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  
+
+
 
   <!--===============================
   PLUGINS DE JAVASCRIPT
@@ -33,6 +40,23 @@ session_start();
   <script src="./vistas/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
   <script src="./vistas/dist/js/adminlte.min.js"></script>
+  <!-- DataTables  & Plugins -->
+  <script src="./vistas/plugins/datatables/jquery.dataTables.min.js"></script>
+  <script src="./vistas/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+  <script src="./vistas/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+  <script src="./vistas/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+  <script src="./vistas/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+  <script src="./vistas/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+  <script src="./vistas/plugins/jszip/jszip.min.js"></script>
+  <script src="./vistas/plugins/pdfmake/pdfmake.min.js"></script>
+  <script src="./vistas/plugins/pdfmake/vfs_fonts.js"></script>
+  <script src="./vistas/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+  <script src="./vistas/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+  <script src="./vistas/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+  <!--Js propio-->
+  <script src="vistas/js/plantilla.js"></script>
+
 
 </head>
 
@@ -60,7 +84,7 @@ session_start();
         $_GET["ruta"] == "ventas" ||
         $_GET["ruta"] == "crear-venta" ||
         $_GET["ruta"] == "reportes" ||
-        $_GET["ruta"] == "salir" 
+        $_GET["ruta"] == "salir"
       ) {
         /**Contenido principal */
         include "modulos/" . $_GET["ruta"] . ".php";
