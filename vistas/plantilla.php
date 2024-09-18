@@ -26,7 +26,7 @@ session_start();
   <link rel="stylesheet" href="./vistas/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="./vistas/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="./vistas/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-  
+
 
 
 
@@ -54,8 +54,10 @@ session_start();
   <script src="./vistas/plugins/datatables-buttons/js/buttons.print.min.js"></script>
   <script src="./vistas/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
-  <!--Js propio-->
-  <script src="vistas/js/plantilla.js"></script>
+  <!--SweetAlert 2-->
+  <script src="./vistas/plugins/sweetalert/sweetalert2@11.js"></script>
+  <script src="./vistas/plugins/sweetalert2/sweetalert2.all.min.js"></script>
+
 
 
 </head>
@@ -110,6 +112,10 @@ session_start();
     include "modulos/login.php";
   }
   ?>
+
+  <!--Js propio-->
+  <script src="vistas/js/plantilla.js"></script>
+  <script src="vistas/js/usuarios.js"></script>
 
 </body>
 

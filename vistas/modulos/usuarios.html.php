@@ -38,8 +38,8 @@
 
                 <table class="table table-bordered table-striped  tablas">
                     <thead>
-                        <tr>
-                            <th style="width: 10px;">#</th>
+                        <tr style="width: 10px;">
+                            <th>#</th>
                             <th>Nombre</th>
                             <th>Usuario</th>
                             <th>Foto</th>
@@ -155,26 +155,18 @@
                         <!--Entrada subir foto-->
                         <div class="form-group">
                             <div class="panel">SUBIR FOTO</div>
-                            <input type="file" class="nuevaFoto" name="nuevaFoto">
-                            <p class="help-block">Peso máximo de la foto 5 mb</p>
-                            <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail previsualizar" width="100px">
+                            <input type="file" id="nuevaFoto" name="nuevaFoto">
+                            <p class="help-block">Peso máximo de la foto 200 mb</p>
+                            <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail" width="100px">
                         </div>
 
                     </div>
                 </div>
 
-                <!-- Pie modal -->
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-success">Guardar usuario</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Salir</button>
                 </div>
-
-                <?php
-
-                $crearUsuario = new ControladorUsuarios();
-                $crearUsuario->ctrCrearUsuario();
-
-                ?>
             </form>
         </div>
 
