@@ -24,17 +24,44 @@ class ControladorUsuarios
                 $respuesta = ModeloUsuarios::mdlMostrarUsuarios($tabla, $item, $valor);
 
                 if ($respuesta['usuario'] == $_POST['ingUsuario'] && $respuesta['password'] == $encriptar) {
-                    /**Variables de sesion */
-                    $_SESSION['iniciarSesion'] = 'ok';
-                    $_SESSION['id'] = $respuesta['id'];
-                    $_SESSION['nombre'] = $respuesta['nombre'];
-                    $_SESSION['usuario'] = $respuesta['usuario'];
-                    $_SESSION['perfil'] = $respuesta['perfil'];
-                    $_SESSION['foto'] = $respuesta['foto'];
 
-                    echo '<script>
-                        window.location = "inicio";
-                    </script>';
+                    if ($respuesta['estado'] == 1) {
+                        /**Variables de sesion */
+                        $_SESSION['iniciarSesion'] = 'ok';
+                        $_SESSION['id'] = $respuesta['id'];
+                        $_SESSION['nombre'] = $respuesta['nombre'];
+                        $_SESSION['usuario'] = $respuesta['usuario'];
+                        $_SESSION['perfil'] = $respuesta['perfil'];
+                        $_SESSION['foto'] = $respuesta['foto'];
+
+                        /**Regsitrar fecha para saber ultimo login */
+
+                        date_default_timezone_set('America/Mexico_City');
+                        $fecha = date('Y-m-d');
+                        $hora = date('H:i:s');
+
+                        $fechaActual = $fecha . ' ' . $hora;
+
+                        $item1 = "ultimo_login";
+                        $valor1 = $fechaActual;
+
+                        $item2 = "id";
+                        $valor2 = $respuesta['id'];
+
+                        $ultimoLogin = ModeloUsuarios::mdlActualizarUsuario($tabla, $item1, $valor1, $item2, $valor2);
+
+                        if ($ultimoLogin == "ok") {
+                            echo '<script>
+                            window.location = "inicio";
+                            </script>';
+                        }
+
+                    } else {
+                        echo '<div class="alert alert-danger mt-2">
+                        Este usuario no esta activo, contacte a un administrador.</div>';
+                    }
+
+
                 } else {
                     echo '<div class="alert alert-danger mt-2">Error al ingresar, vuelve a intentarlo.</div>';
                 }
@@ -169,7 +196,7 @@ class ControladorUsuarios
                 /**Validar imagen */
                 $ruta = $_POST['fotoActual'];
 
-                if (isset($_FILES['editarFoto']['tmp_name'])) {
+                if (isset($_FILES['editarFoto']['tmp_name']) && !empty($_FILES['editarFoto']['tmp_name'])) {
                     list($ancho, $alto) = getimagesize($_FILES['editarFoto']['tmp_name']);
                     $nuevoAncho = 500;
                     $nuevoAlto = 500;

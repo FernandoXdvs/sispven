@@ -70,10 +70,26 @@
                                 echo '<td><img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail" width="40px">
                                 </td>';
                             }
-                            echo '<td>' . $usuario['perfil'] . '</td>
-                            <td><button class="btn btn-success btn-xs">Activado</button></td>
-                            <td>' . "0000-00-00 00:00:00" . '</td>
-                            <td>
+                            echo '<td>' . $usuario['perfil'] . '</td>';
+
+                            if ($usuario['estado'] != 0) {
+                                echo '<td><button class="btn btn-success btn-xs btnActivar" 
+                                idUsuario=' . $usuario['id'] . ' estadoUsuario="0">
+                                Activado
+                                </button></td>';
+                            } else {
+                                echo '<td><button class="btn btn-danger btn-xs btnActivar" 
+                                idUsuario=' . $usuario['id'] . ' estadoUsuario="1">
+                                Desactivado
+                                </button></td>';
+
+                            }
+                            if (isset($usuario['ultimo_login'])) {
+                                echo '<td>' . $usuario['ultimo_login'] . '</td>';
+                            } else {
+                                echo '<td>0000-00-00 00:00:00</td>';
+                            }
+                            echo '<td>
                                 <div class="btn-group">
                                     <button class="btn btn-warning btnEditarUsuario" idUsuario="' . $usuario['id'] . '" data-toggle="modal" data-target="#modalEditarUsuario">
                                         <i class="fa fa-pen"></i>
