@@ -186,7 +186,7 @@ class ControladorUsuarios
     }
 
     /**Editar usuario */
-    public function ctrEditarUsuario()
+    static public function ctrEditarUsuario()
     {
 
         if (isset($_POST['editarUsuario'])) {
@@ -294,6 +294,41 @@ class ControladorUsuarios
                     Swal.fire({
                         icon :"error",
                         title: "¡El usuario no puede ir vacío o llevar caracteres especiales!",
+                        showConfirmButton: true,
+                        confirmButtonText: "Cerrar",
+                        closeOnConfirm :false,
+                        }).then((result)=>{
+                            if(result.value){
+                                window.location="usuarios";
+                            }
+                        });
+                    </script>';
+            }
+
+        }
+    }
+
+    /**Borrar usuario */
+
+    static public function ctrBorrarUsuario()
+    {
+        if (isset($_GET['idUsuario'])) {
+            $tabla = "usuarios";
+            $datos = $_GET['idUsuario'];
+
+            if ($_GET['fotoUsuario'] != "") {
+                unlink($_GET['fotoUsuario']);
+                rmdir('vistas/img/usuarios/' . $_GET['usuario']);
+
+            }
+
+            $respuesta = ModeloUsuarios::mdlBorrarUsuario($tabla, $datos);
+
+            if ($respuesta == "ok") {
+                echo '<script>
+                    Swal.fire({
+                        icon :"success",
+                        title: "¡El usuario ha sido eliminado correctamente!",
                         showConfirmButton: true,
                         confirmButtonText: "Cerrar",
                         closeOnConfirm :false,

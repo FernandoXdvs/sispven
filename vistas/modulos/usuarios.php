@@ -94,7 +94,9 @@
                                     <button class="btn btn-warning btnEditarUsuario" idUsuario="' . $usuario['id'] . '" data-toggle="modal" data-target="#modalEditarUsuario">
                                         <i class="fa fa-pen"></i>
                                     </button>
-                                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                                    <button class="btn btn-danger btnEliminarUsuario" idUsuario="' . $usuario['id'] . '" 
+                                    fotoUsuario="'.$usuario['foto'].'" usuario="'.$usuario['usuario'].'"
+                                    ><i class="fa fa-times"></i></button>
                                 </div>
                             </td>
                         </tr>
@@ -154,7 +156,7 @@
                                         <i class="fa fa-key"></i>
                                     </span>
                                 </div>
-                                <input type="text" class="form-control input-lg" name="nuevoUsuario"
+                                <input type="text" class="form-control input-lg" name="nuevoUsuario" id="nuevoUsuario"
                                     placeholder="Ingresar usuario" required>
                             </div>
                         </div>
@@ -334,3 +336,8 @@
     </div>
 
 </div>
+
+<?php 
+    $borrarUsuario = new ControladorUsuarios();
+    $borrarUsuario->ctrBorrarUsuario();
+?>

@@ -111,3 +111,60 @@ $('.btnActivar').click(function () {
     }
 
 });
+
+/**Evitar usuario repetido */
+
+$('#nuevoUsuario').change(function () {
+
+    $(".alert").remove();
+
+    var usuario = $(this).val();
+
+    var datos = new FormData();
+    datos.append("validarUsuario", usuario);
+
+    $.ajax({
+        url: "ajax/usuarios.ajax.php",
+        method: "post",
+        data: datos,
+        cache: false,
+        contentType: false,
+        processData: false,
+        dataType: "json",
+        success: function (respuesta) {
+            if (respuesta) {
+                $('#nuevoUsuario').parent().after('<div class="alert alert-warning">Este usuario ya existe en la base de datos.</div>');
+                $('#nuevoUsuario').val('');
+            }
+        },
+        error: function (error) {
+            console.log("error", error);
+        }
+    });
+
+
+});
+
+/**Eliminar usuario */
+
+$('.btnEliminarUsuario').click(function () {
+
+    var idUsuario = $(this).attr("idUsuario");
+    var fotoUsuario = $(this).attr("fotoUsuario");
+    var usuario = $(this).attr("usuario");
+    
+    Swal.fire({
+        icon: "warning",
+        title: "¿Está seguro de borrar el usuario?",
+        text: "¡Si no lo está puede cancelar la opción",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        cancelButtonText: "Cancelar",
+        confirmButtonText:"Si, borrar usuario!",
+    }).then((result) => {
+        if (result.value) {
+            window.location = "index.php?ruta=usuarios&idUsuario="+idUsuario+"&usuario="+usuario+"&fotoUsuario="+fotoUsuario;
+        }
+    });
+});
