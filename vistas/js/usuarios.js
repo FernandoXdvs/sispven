@@ -36,7 +36,7 @@ $('.nuevaFoto').change((e) => {
 
 /*Editar usuario */
 
-$('.btnEditarUsuario').click(function () {
+$(document).on("click", ".btnEditarUsuario", function () {
 
     var idUsuario = $(this).attr("idUsuario");
 
@@ -74,7 +74,7 @@ $('.btnEditarUsuario').click(function () {
 
 /**Activar usuario */
 
-$('.btnActivar').click(function () {
+$(document).on("click", ".btnActivar", function () {
     var idUsuario = $(this).attr("idUsuario");
     var estadoUsuario = $(this).attr("estadoUsuario");
 
@@ -90,7 +90,17 @@ $('.btnActivar').click(function () {
         contentType: false,
         processData: false,
         success: function (respuesta) {
-            realizado = true;
+            if (window.matchMedia("(max-width:767px)").matches) {
+                Swal.fire({
+                    icon: "success",
+                    title: "El usuario ha sido actualizado",
+                    confirmButtonText: "Cerrar",
+                }).then((result) => {
+                    if (result.value) {
+                        window.location = "usuarios";
+                    }
+                });
+            }
         },
         error: function (error) {
             console.log("error", error);
@@ -147,12 +157,12 @@ $('#nuevoUsuario').change(function () {
 
 /**Eliminar usuario */
 
-$('.btnEliminarUsuario').click(function () {
+$(document).on("click", ".btnEliminarUsuario", function () {
 
     var idUsuario = $(this).attr("idUsuario");
     var fotoUsuario = $(this).attr("fotoUsuario");
     var usuario = $(this).attr("usuario");
-    
+
     Swal.fire({
         icon: "warning",
         title: "¿Está seguro de borrar el usuario?",
@@ -161,10 +171,10 @@ $('.btnEliminarUsuario').click(function () {
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
         cancelButtonText: "Cancelar",
-        confirmButtonText:"Si, borrar usuario!",
+        confirmButtonText: "Si, borrar usuario!",
     }).then((result) => {
         if (result.value) {
-            window.location = "index.php?ruta=usuarios&idUsuario="+idUsuario+"&usuario="+usuario+"&fotoUsuario="+fotoUsuario;
+            window.location = "index.php?ruta=usuarios&idUsuario=" + idUsuario + "&usuario=" + usuario + "&fotoUsuario=" + fotoUsuario;
         }
     });
 });
