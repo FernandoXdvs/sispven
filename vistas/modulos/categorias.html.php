@@ -28,7 +28,7 @@
         <div class="card">
             <div class="card-header">
 
-                <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarCategoria">
+                <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarcategoria">
                     Agregar categoría
                 </button>
 
@@ -65,7 +65,7 @@
 <!--==========================================
 ===========MODAL AGREGAR CATEGORIAS============== 
 ===========================================-->
-<div id="modalAgregarCategoria" class="modal fade" role="dialog">
+<div id="modalAgregarcategoria" class="modal fade" role="dialog">
 
     <!--Modal--->
     <div class="modal-dialog">
@@ -103,14 +103,6 @@
                     <button type="submit" class="btn btn-success">Guardar categoría</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Salir</button>
                 </div>
-
-            <?php 
-            
-                $crearCategoria = new ControladorCategorias();
-                $crearCategoria-> ctrCrearCategoria();
-
-            ?>
-
             </form>
         </div>
 
