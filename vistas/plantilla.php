@@ -27,6 +27,8 @@ session_start();
   <link rel="stylesheet" href="./vistas/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="./vistas/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 
+    <!-- iCheck -->
+    <link rel="stylesheet" href="./vistas/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
 
 
 

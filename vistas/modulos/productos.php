@@ -183,7 +183,7 @@
 
                                 <br>
                                 <!--Entrada para porcentaje-->
-                                <div class="col-md-12">
+                                <div class="col-md-12" style="margin-bottom: 5px;">
                                     <div class="input-group">
                                         <input type="number" class="form-control input-lg nuevoPorcentaje" min="0"
                                             value="40" required>
@@ -195,10 +195,10 @@
                                 <!--Checkbox para porcentaje-->
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>
-                                            <input type="checkbox" class="minimal porcentaje" checked>
-                                            Utilizar porcentaje
-                                        </label>
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="checkboxPrimary1" class="minimal porcentaje" checked>
+                                            <label for="checkboxPrimary1">Utilizar porcentaje</label>
+                                        </div>
                                     </div>
                                 </div>
 
