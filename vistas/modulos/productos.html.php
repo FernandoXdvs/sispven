@@ -47,45 +47,29 @@
                             <th>Stock</th>
                             <th>Precio de compra</th>
                             <th>Precio de venta</th>
-                            <th>Ventas</th>
                             <th>Agregado</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
-                        $item = null;
-                        $valor = null;
-                        $productos = ControladorProductos::ctrMostrarProductos($item, $valor);
-
-                        foreach ($productos as $key => $producto) {
-                            echo '
-                            <tr>
-                                <td>'.($key+1).'</td>
-                                <td><img src="vistas/img/productos/default/anonymous.png" class="img-thumbnail"
-                                        width="40px"></td>
-                                <td>'.$producto['codigo'].'</td>
-                                <td>'.$producto['descripcion'].'</td>';
-
-                                $item ="id";
-                                $valor = $producto['id_categoria'];
-                                $categoria = ControladorCategorias::ctrMostrarCategorias($item, $valor);
-
-                                echo '<td>'.$categoria['categoria'].'</td>
-                                <td>'.$producto['stock'].'</td>
-                                <td>'.$producto['precio_compra'].'</td>
-                                <td>'.$producto['precio_venta'].'</td>
-                                <td>'.$producto['ventas'].'</td>
-                                <td>'.$producto['fecha'].'</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <button class="btn btn-warning"><i class="fa fa-pen"></i></button>
-                                        <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-                                    </div>
-                                </td>
-                            </tr>';
-                        }
-                        ?>
+                        <tr>
+                            <td>1</td>
+                            <td><img src="vistas/img/productos/default/anonymous.png" class="img-thumbnail"
+                                    width="40px"></td>
+                            <td>0001</td>
+                            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, repellat!</td>
+                            <td>Lorem ipsum</td>
+                            <td>20</td>
+                            <td>5.00</td>
+                            <td>10.00</td>
+                            <td>2024-12-11 12-05-32</td>
+                            <td>
+                                <div class="btn-group">
+                                    <button class="btn btn-warning"><i class="fa fa-pen"></i></button>
+                                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                                </div>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -212,8 +196,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <div class="icheck-primary d-inline">
-                                            <input type="checkbox" id="checkboxPrimary1" class="minimal porcentaje"
-                                                checked>
+                                            <input type="checkbox" id="checkboxPrimary1" class="minimal porcentaje" checked>
                                             <label for="checkboxPrimary1">Utilizar porcentaje</label>
                                         </div>
                                     </div>
