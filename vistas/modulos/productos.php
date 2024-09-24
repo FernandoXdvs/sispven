@@ -36,7 +36,8 @@
 
             <div class="card-body">
 
-                <table class="table table-bordered table-striped  tablas">
+                <table class="table table-bordered table-striped tablaProductos"  >
+
                     <thead>
                         <tr style="width: 10px;">
                             <th>#</th>
@@ -52,41 +53,6 @@
                             <th>Acciones</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <?php
-                        $item = null;
-                        $valor = null;
-                        $productos = ControladorProductos::ctrMostrarProductos($item, $valor);
-
-                        foreach ($productos as $key => $producto) {
-                            echo '
-                            <tr>
-                                <td>'.($key+1).'</td>
-                                <td><img src="vistas/img/productos/default/anonymous.png" class="img-thumbnail"
-                                        width="40px"></td>
-                                <td>'.$producto['codigo'].'</td>
-                                <td>'.$producto['descripcion'].'</td>';
-
-                                $item ="id";
-                                $valor = $producto['id_categoria'];
-                                $categoria = ControladorCategorias::ctrMostrarCategorias($item, $valor);
-
-                                echo '<td>'.$categoria['categoria'].'</td>
-                                <td>'.$producto['stock'].'</td>
-                                <td>'.$producto['precio_compra'].'</td>
-                                <td>'.$producto['precio_venta'].'</td>
-                                <td>'.$producto['ventas'].'</td>
-                                <td>'.$producto['fecha'].'</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <button class="btn btn-warning"><i class="fa fa-pen"></i></button>
-                                        <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-                                    </div>
-                                </td>
-                            </tr>';
-                        }
-                        ?>
-                    </tbody>
                 </table>
             </div>
         </div>
