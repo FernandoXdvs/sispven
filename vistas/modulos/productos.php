@@ -36,7 +36,7 @@
 
             <div class="card-body">
 
-                <table class="table table-bordered table-striped tablaProductos"  >
+                <table class="table table-bordered table-striped tablaProductos">
 
                     <thead>
                         <tr style="width: 10px;">
@@ -82,6 +82,30 @@
                 <div class="modal-body">
                     <div class="box-body">
 
+                        <!--Entrada seleccionar categoria-->
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fa fa-th"></i>
+                                    </span>
+                                </div>
+                                <select class="form-control input-lg" name="nuevaCategoria" id="nuevaCategoria">
+                                    <option value="">Selecciona categoría</option>
+                                    <?php
+                                        $item =null;
+                                        $valor=null;
+
+                                        $categorias= ControladorCategorias::ctrMostrarCategorias($item, $valor);
+
+                                        foreach ($categorias as $key => $categoria) {
+                                            echo '<option value="'.$categoria['id'].'">'.$categoria['categoria'].'</option>';
+                                        }
+                                    ?>
+                                </select>
+                            </div>
+                        </div>
+
                         <!--Entrada codigo-->
                         <div class="form-group">
                             <div class="input-group">
@@ -90,8 +114,8 @@
                                         <i class="fa fa-code"></i>
                                     </span>
                                 </div>
-                                <input type="text" class="form-control input-lg" name="nuevoCodigo"
-                                    placeholder="Ingresar código" required>
+                                <input type="text" class="form-control input-lg" id="nuevoCodigo" name="nuevoCodigo"
+                                    placeholder="Ingresar código" readonly required>
                             </div>
                         </div>
 
@@ -105,23 +129,6 @@
                                 </div>
                                 <input type="text" class="form-control input-lg" name="nuevaDescripcion"
                                     placeholder="Ingresar descripción" required>
-                            </div>
-                        </div>
-
-                        <!--Entrada seleccionar categoria-->
-                        <div class="form-group">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="fa fa-th"></i>
-                                    </span>
-                                </div>
-                                <select class="form-control input-lg" name="nuevaCategoria">
-                                    <option value="">Selecciona categoría</option>
-                                    <option value="Taladros">Taladros</option>
-                                    <option value="Andamios">Andamios</option>
-                                    <option value="Equipos para construcción">Equipos para construcción</option>
-                                </select>
                             </div>
                         </div>
 
@@ -147,7 +154,7 @@
                                             <i class="fa fa-arrow-up"></i>
                                         </span>
                                     </div>
-                                    <input type="number" class="form-control input-lg" name="nuevoPrecioCompra" min="0"
+                                    <input type="number" class="form-control input-lg"  id="nuevoPrecioCompra" name="nuevoPrecioCompra" min="0"
                                         placeholder="Precio de compra" required>
                                 </div>
                             </div>
@@ -159,7 +166,7 @@
                                             <i class="fa fa-arrow-down"></i>
                                         </span>
                                     </div>
-                                    <input type="number" class="form-control input-lg" name="nuevoPrecioVenta" min="0"
+                                    <input type="number" class="form-control input-lg" id="nuevoPrecioVenta" name="nuevoPrecioVenta" min="0"
                                         placeholder="Precio de venta" required>
                                 </div>
 
@@ -206,6 +213,12 @@
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Salir</button>
                 </div>
             </form>
+            <?php 
+                $crearProducto = new ControladorProductos();
+                $crearProducto -> ctrCrearProducto();
+                                        
+            ?>
+
         </div>
 
     </div>

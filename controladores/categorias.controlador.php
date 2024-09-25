@@ -96,7 +96,7 @@ class ControladorCategorias
                 echo '<script>
                 Swal.fire({
                     icon :"error",
-                    title: "¡La categoría no puede ir vacia o llevar caracteres esécoañes!",
+                    title: "¡La categoría no puede ir vacia o llevar caracteres especiales!",
                     showConfirmButton: true,
                     confirmButtonText: "Cerrar",
                     closeOnConfirm :false,
