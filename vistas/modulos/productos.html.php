@@ -36,8 +36,7 @@
 
             <div class="card-body">
 
-                <table class="table table-bordered table-striped tablaProductos">
-
+                <table class="table table-bordered table-striped  tablas">
                     <thead>
                         <tr style="width: 10px;">
                             <th>#</th>
@@ -48,11 +47,30 @@
                             <th>Stock</th>
                             <th>Precio de compra</th>
                             <th>Precio de venta</th>
-                            <th>Ventas</th>
                             <th>Agregado</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td><img src="vistas/img/productos/default/anonymous.png" class="img-thumbnail"
+                                    width="40px"></td>
+                            <td>0001</td>
+                            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, repellat!</td>
+                            <td>Lorem ipsum</td>
+                            <td>20</td>
+                            <td>5.00</td>
+                            <td>10.00</td>
+                            <td>2024-12-11 12-05-32</td>
+                            <td>
+                                <div class="btn-group">
+                                    <button class="btn btn-warning"><i class="fa fa-pen"></i></button>
+                                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         </div>
@@ -82,30 +100,6 @@
                 <div class="modal-body">
                     <div class="box-body">
 
-                        <!--Entrada seleccionar categoria-->
-                        <div class="form-group">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="fa fa-th"></i>
-                                    </span>
-                                </div>
-                                <select class="form-control input-lg" name="nuevaCategoria" id="nuevaCategoria">
-                                    <option value="">Selecciona categoría</option>
-                                    <?php
-                                        $item =null;
-                                        $valor=null;
-
-                                        $categorias= ControladorCategorias::ctrMostrarCategorias($item, $valor);
-
-                                        foreach ($categorias as $key => $categoria) {
-                                            echo '<option value="'.$categoria['id'].'">'.$categoria['categoria'].'</option>';
-                                        }
-                                    ?>
-                                </select>
-                            </div>
-                        </div>
-
                         <!--Entrada codigo-->
                         <div class="form-group">
                             <div class="input-group">
@@ -114,8 +108,8 @@
                                         <i class="fa fa-code"></i>
                                     </span>
                                 </div>
-                                <input type="text" class="form-control input-lg" id="nuevoCodigo" name="nuevoCodigo"
-                                    placeholder="Ingresar código" readonly required>
+                                <input type="text" class="form-control input-lg" name="nuevoCodigo"
+                                    placeholder="Ingresar código" required>
                             </div>
                         </div>
 
@@ -129,6 +123,23 @@
                                 </div>
                                 <input type="text" class="form-control input-lg" name="nuevaDescripcion"
                                     placeholder="Ingresar descripción" required>
+                            </div>
+                        </div>
+
+                        <!--Entrada seleccionar categoria-->
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fa fa-th"></i>
+                                    </span>
+                                </div>
+                                <select class="form-control input-lg" name="nuevaCategoria">
+                                    <option value="">Selecciona categoría</option>
+                                    <option value="Taladros">Taladros</option>
+                                    <option value="Andamios">Andamios</option>
+                                    <option value="Equipos para construcción">Equipos para construcción</option>
+                                </select>
                             </div>
                         </div>
 
@@ -154,8 +165,8 @@
                                             <i class="fa fa-arrow-up"></i>
                                         </span>
                                     </div>
-                                    <input type="number" class="form-control input-lg"  id="nuevoPrecioCompra" name="nuevoPrecioCompra" min="0"
-                                        placeholder="Precio de compra" step="any" required>
+                                    <input type="number" class="form-control input-lg" name="nuevoPrecioCompra" min="0"
+                                        placeholder="Precio de compra" required>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-md-6" style="margin-top:7px;">
@@ -166,8 +177,8 @@
                                             <i class="fa fa-arrow-down"></i>
                                         </span>
                                     </div>
-                                    <input type="number" class="form-control input-lg" id="nuevoPrecioVenta" name="nuevoPrecioVenta" min="0"
-                                        placeholder="Precio de venta" step="any" required>
+                                    <input type="number" class="form-control input-lg" name="nuevoPrecioVenta" min="0"
+                                        placeholder="Precio de venta" required>
                                 </div>
 
                                 <br>
@@ -185,8 +196,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <div class="icheck-primary d-inline">
-                                            <input type="checkbox" id="checkboxPrimary1" class="minimal porcentaje"
-                                                checked>
+                                            <input type="checkbox" id="checkboxPrimary1" class="minimal porcentaje" checked>
                                             <label for="checkboxPrimary1">Utilizar porcentaje</label>
                                         </div>
                                     </div>
@@ -195,12 +205,14 @@
                             </div>
                         </div>
 
+
+
                         <!--Entrada subir foto-->
                         <div class="form-group">
                             <div class="panel">SUBIR IMAGEN</div>
-                            <input type="file" class="nuevaImagen" name="nuevaImagen">
+                            <input type="file" id="nuevaImagen" name="nuevaImagen">
                             <p class="help-block">Peso máximo de la foto 5 mb</p>
-                            <img src="vistas/img/productos/default/anonymous.png" class="img-thumbnail previsualizar" width="100px">
+                            <img src="vistas/img/productos/default/anonymous.png" class="img-thumbnail" width="100px">
                         </div>
 
                     </div>
@@ -211,12 +223,6 @@
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Salir</button>
                 </div>
             </form>
-            <?php 
-                $crearProducto = new ControladorProductos();
-                $crearProducto -> ctrCrearProducto();
-                                        
-            ?>
-
         </div>
 
     </div>
