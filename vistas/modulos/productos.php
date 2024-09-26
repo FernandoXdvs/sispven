@@ -155,7 +155,7 @@
                                         </span>
                                     </div>
                                     <input type="number" class="form-control input-lg"  id="nuevoPrecioCompra" name="nuevoPrecioCompra" min="0"
-                                        placeholder="Precio de compra" required>
+                                        placeholder="Precio de compra" step="any" required>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-md-6" style="margin-top:7px;">
@@ -167,7 +167,7 @@
                                         </span>
                                     </div>
                                     <input type="number" class="form-control input-lg" id="nuevoPrecioVenta" name="nuevoPrecioVenta" min="0"
-                                        placeholder="Precio de venta" required>
+                                        placeholder="Precio de venta" step="any" required>
                                 </div>
 
                                 <br>

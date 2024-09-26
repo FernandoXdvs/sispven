@@ -25,8 +25,8 @@ class ControladorProductos
             if (
                 preg_match(pattern: '/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', subject: $_POST['nuevaDescripcion']) &&
                 preg_match(pattern: '/^[0subject: -9]+$/', subject: $_POST["nuevoStock"]) &&
-                preg_match(pattern: '/^[0-9]+$/', subject: $_POST["nuevoPrecioCompra"]) &&
-                preg_match(pattern: '/^[0-9]+$/', subject: $_POST["nuevoPrecioVenta"])
+                preg_match(pattern: '/^[0-9.]+$/', subject: $_POST["nuevoPrecioCompra"]) &&
+                preg_match(pattern: '/^[0-9.]+$/', subject: $_POST["nuevoPrecioVenta"])
             ) {
 
                 $ruta="vistas/img/productos/default/anonymous.png";
