@@ -94,5 +94,28 @@ class ModeloProductos
         $stmt = null;
     }
 
+    /**
+     * Summary of mdlEliminarProducto
+     * @param mixed $tabla
+     * @param mixed $datos
+     * @return void
+     */
+    static public function mdlEliminarProducto($tabla, $datos)
+    {
+        $stmt = Conexion::conectar()->prepare("DELETE FROM $tabla where id= :id");
+
+        $stmt->bindParam(":id", $datos, PDO::PARAM_INT);
+
+        if ($stmt->execute()) {
+            return "ok";
+        } else {
+            return "error";
+        }
+
+        $stmt->close();
+        $stmt = null;
+
+    }
+
 }
 ?>

@@ -153,7 +153,7 @@ $(".editarPorcentaje").change(function () {
 /**Si se desea aumentar un porcentaje al precio de venta o no en editar */
 
 
-$(".checkPorcentaje").change(function(){
+$(".checkPorcentaje").change(function () {
     if (!$(".checkPorcentaje").prop("checked")) {
         $("#editarPrecioVenta").prop("readonly", false);
     } else {
@@ -246,10 +246,11 @@ $(".tablaProductos tbody").on("click", "button.btnEditarProducto", function () {
             $("#editarPrecioCompra").val(respuesta["precio_compra"]);
             $("#editarPrecioVenta").val(respuesta["precio_venta"]);
 
-            if(respuesta["imagen"]!=""){
+            if (respuesta["imagen"] != "") {
                 $("#imagenActual").val(respuesta["imagen"]);
-                $(".previsualizar").attr("src",respuesta["imagen"]);
+                $(".previsualizar").attr("src", respuesta["imagen"]);
             }
+
         },
         error: function (error) {
             console.log("error", error);
@@ -258,6 +259,30 @@ $(".tablaProductos tbody").on("click", "button.btnEditarProducto", function () {
 
 });
 
+
+/**Eliminar producto */
+
+$(".tablaProductos tbody").on("click", "button.btnEliminarProducto", function () {
+    var idProducto = $(this).attr("idProducto");
+    var codigo = $(this).attr("codigo");
+    var imagen = $(this).attr("imagen");
+
+    Swal.fire({
+        icon: "warning",
+        title: "¿Está seguro de eliminar este producto?",
+        text: "¡Si no lo está puede cancelar la opción",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        cancelButtonText: "Cancelar",
+        confirmButtonText: "Si, borrar produto!",
+    }).then((result) => {
+        if (result.value) {
+            window.location = "index.php?ruta=productos&idProducto=" + idProducto + "&codigo=" + codigo + "&imagen=" + imagen;
+        }
+    });
+
+});
 
 
 

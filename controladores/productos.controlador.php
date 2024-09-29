@@ -140,7 +140,7 @@ class ControladorProductos
 
                 $ruta = $_POST['imagenActual'];
 
-                if (isset($_FILES['editarImagen']['tmp_name'])&& !empty($_FILES['editarImagen']['tmp_name'])) {
+                if (isset($_FILES['editarImagen']['tmp_name']) && !empty($_FILES['editarImagen']['tmp_name'])) {
                     list($ancho, $alto) = getimagesize($_FILES['editarImagen']['tmp_name']);
                     $nuevoAncho = 500;
                     $nuevoAlto = 500;
@@ -152,7 +152,7 @@ class ControladorProductos
 
                     if (!empty($_POST['imagenActual']) && $_POST['imagenActual'] != "vistas/img/productos/default/anonymous.png") {
                         unlink($_POST['imagenActual']);
-                    }else{
+                    } else {
                         mkdir($directorio, 0755);
                     }
                     /**De acuerdo al tipo de imagen */
@@ -227,6 +227,41 @@ class ControladorProductos
                     });
                 </script>';
             }
+        }
+    }
+
+    /** Borrar producto */
+
+    static public function ctrEliminarProducto()
+    {
+        if (isset($_GET['idProducto'])) {
+
+            $tabla = "productos";
+            $datos = $_GET['idProducto'];
+
+            if ($_GET['imagen'] != "" && $_GET['imagen'] != "vistas/img/productos/default/anonymous.png") {
+                unlink($_GET['imagen']);
+                rmdir('vistas/img/productos/' . $_GET['codigo']);
+            }
+
+            $respuesta= ModeloProductos::mdlEliminarProducto($tabla,$datos);
+
+            if ($respuesta == "ok") {
+                echo '<script>
+                    Swal.fire({
+                        icon :"success",
+                        title: "¡El producto ha sido eliminado correctamente!",
+                        showConfirmButton: true,
+                        confirmButtonText: "Cerrar",
+                        closeOnConfirm :false,
+                        }).then((result)=>{
+                            if(result.value){
+                                window.location="productos";
+                            }
+                        });
+                    </script>';
+            }
+
         }
     }
 
