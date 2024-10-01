@@ -115,7 +115,7 @@
                                     placeholder="Ingresar nombre" required>
                             </div>
                         </div>
-
+                      
                         <!--Entrada INE/IFE-->
                         <div class="form-group">
                             <div class="input-group">
@@ -141,7 +141,7 @@
                                     placeholder="Ingresar email" required>
                             </div>
                         </div>
-
+                        
                         <!--Entrada telefono-->
                         <div class="form-group">
                             <div class="input-group">
@@ -151,8 +151,7 @@
                                     </span>
                                 </div>
                                 <input type="text" class="form-control input-lg" name="nuevoTelefono"
-                                    placeholder="Ingresar telefóno" data-inputmask='"mask": "(999) 999-9999"' data-mask
-                                    required>
+                                    placeholder="Ingresar telefóno" data-inputmask='"mask": "(999) 999-9999"' data-mask required>
                             </div>
                         </div>
 
@@ -178,9 +177,8 @@
                                         <i class="far fa-calendar-alt"></i>
                                     </span>
                                 </div>
-                                <input type="text" class="form-control input-lg" name="nuevaFechaNacimiento"
-                                    placeholder="Ingresar fecha de nacimiento" data-inputmask-alias="datetime"
-                                    data-inputmask-inputformat="yyyy/mm/dd" data-mask required>
+                                <input type="text" class="form-control input-lg" name="nuevoFechaNacimiento"
+                                    placeholder="Ingresar fecha de nacimiento" data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy/mm/dd" data-mask required>
                             </div>
                         </div>
 
@@ -192,13 +190,6 @@
                     <button type="submit" class="btn btn-success">Guardar cliente</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Salir</button>
                 </div>
-
-
-                <?php
-                $crearCliente = new ControladorClientes();
-                $crearCliente->ctrCrearCliente();
-                ?>
-
             </form>
         </div>
 
