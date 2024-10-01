@@ -57,10 +57,10 @@
                         $valor = null;
                         $usuarios = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
 
-                        foreach ($usuarios as $usuario) {
+                        foreach ($usuarios as $key => $usuario) {
                             echo '
                             <tr>
-                            <td>' . $usuario['id'] . '</td>
+                            <td>' . ($key+1) . '</td>
                             <td>' . $usuario['nombre'] . '</td>
                             <td>' . $usuario['usuario'] . '</td>';
                             if ($usuario['foto']) {
