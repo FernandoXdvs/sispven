@@ -150,6 +150,37 @@ class ControladorClientes
         }
     }
 
+    /**
+     * Summary of ctrEliminarCliente
+     * @return void
+     */
+    static public function ctrEliminarCliente(){
+        if(isset($_GET["idCliente"])){
+            $tabla = "clientes";
+            $datos = $_GET["idCliente"];
+
+            $respuesta = ModeloClientes::mdlEliminarCliente($tabla,$datos);
+
+            if ($respuesta == "ok") {
+                echo '<script>
+                    Swal.fire({
+                        icon :"success",
+                        title: "¡El cliente ha sido eliminado correctamente!",
+                        showConfirmButton: true,
+                        confirmButtonText: "Cerrar",
+                        closeOnConfirm :false,
+                        }).then((result)=>{
+                            if(result.value){
+                                window.location="clientes";
+                            }
+                        });
+                    </script>';
+            }
+
+        }
+    }
+
+
 }
 
 ?>

@@ -36,7 +36,7 @@
 
             <div class="card-body">
 
-                <table class="table table-bordered table-striped  tablas">
+                <table class="table table-bordered table-striped tablaClientes">
                     <thead>
                         <tr style="width: 10px;">
                             <th>#</th>
@@ -45,7 +45,6 @@
                             <th>Email</th>
                             <th>Teléfono</th>
                             <th>Dirección</th>
-                            <th>Fecha nacimiento</th>
                             <th>Total compras</th>
                             <th>Última compra</th>
                             <th>Ingreso sistema</th>
@@ -53,37 +52,34 @@
                         </tr>
                     </thead>
                     <tbody>
-
                         <?php
-
                         $item = null;
                         $valor = null;
-
                         $clientes = ControladorClientes::ctrMostrarClientes($item, $valor);
 
                         foreach ($clientes as $key => $cliente) {
-                            echo '
-                                <tr>
-                                    <td>' . ($key + 1) . '</td>
-                                    <td>' . $cliente['nombre'] . '</td>
-                                    <td>' . $cliente['documento'] . '</td>
-                                    <td>' . $cliente['email'] . '</td>
-                                    <td>' . $cliente['telefono'] . '</td>
-                                    <td>' . $cliente['direccion'] . '</td>
-                                    <td>' . $cliente['fecha_nacimiento'] . '</td>
-                                    <td>' . $cliente['compras'] . '</td>
-                                    <td><small>0000-00-00 00:00:00</small></td>
-                                    <td>' . $cliente['fecha'] . '</td>
-                                    <td>
-                                        <div class="btn-group">
-                                            <button class="btn btn-warning btnEditarCliente" data-toggle="modal" 
-                                            data-target="#modalEditarCliente" idCliente="' . $cliente['id'] . '"><i class="fa fa-pen"></i></button>
-                                            <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-                                        </div>
-                                    </td>
-                                </tr>';
+                            echo '<tr>
+                            <td>' . ($key + 1) . '</td>
+                            <td>' . $cliente['nombre'] . '</td>
+                            <td>' . $cliente['documento'] .
+                                ' <br>
+                            <small><b>Fecha Nacimiento : </b>' . $cliente['fecha_nacimiento'] . '</small>
+                            </td>
+                            <td>' . $cliente['email'] . '</td>
+                            <td>' . $cliente['telefono'] . '</td>
+                            <td>' . $cliente['direccion'] . '</td>
+                            <td>' . $cliente['compras'] . '</td>
+                            <td>' . "0000-00-00 00:00:00" . '</td>
+                            <td>' . $cliente['fecha'] . '</td>
+                            <td>
+                                <div class="btn-group">
+                                   <button class="btn btn-warning btnEditarCliente" data-toggle="modal" 
+                                     data-target="#modalEditarCliente" idCliente="' . $cliente['id'] . '"><i class="fa fa-pen"></i></button>
+                                <button class="btn btn-danger btnEliminarCliente" idCliente="' . $cliente['id'] . '"><i class="fa fa-times"></i></button>
+                               </div>
+                            </td>
+                           </tr>';
                         }
-
                         ?>
                     </tbody>
                 </table>
@@ -345,3 +341,8 @@
     </div>
 
 </div>
+
+<?php
+$eliminarCliente = new ControladorClientes();
+$eliminarCliente->ctrEliminarCliente();
+?>
