@@ -27,6 +27,8 @@ session_start();
   <link rel="stylesheet" href="./vistas/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="./vistas/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 
+  <!-- iCheck -->
+  <link rel="stylesheet" href="./vistas/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
 
 
 
@@ -58,6 +60,9 @@ session_start();
   <script src="./vistas/plugins/sweetalert/sweetalert2@11.js"></script>
   <script src="./vistas/plugins/sweetalert2/sweetalert2.all.min.js"></script>
 
+  <!-- InputMask -->
+  <script src="./vistas/plugins/moment/moment.min.js"></script>
+  <script src="./vistas/plugins/inputmask/jquery.inputmask.min.js"></script>
 
 
 </head>
@@ -116,6 +121,9 @@ session_start();
   <!--Js propio-->
   <script src="vistas/js/plantilla.js"></script>
   <script src="vistas/js/usuarios.js"></script>
+  <script src="vistas/js/categorias.js"></script>
+  <script src="vistas/js/productos.js"></script>
+  <script src="vistas/js/clientes.js"></script>
 
 </body>
 
