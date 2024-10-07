@@ -30,7 +30,7 @@
                     <div class="card-header whith-border">
 
                     </div>
-                    <form method="post" class="formularioVenta">
+                    <form method="post">
                         <div class="card-body">
 
                             <div class="card" style="padding: 10px;;">
@@ -43,9 +43,7 @@
                                             </span>
                                         </div>
                                         <input type="text" class="form-control" id="nuevoVendedor" name="nuevoVendedor"
-                                            value="<?php echo $_SESSION['nombre']; ?>" readonly>
-
-                                        <input type="hidden" name="idVendedor" value="<?php echo $_SESSION['id']; ?>">
+                                            value="Usuario Administrador" readonly>
                                     </div>
                                 </div>
 
@@ -57,28 +55,8 @@
                                                 <i class="fa fa-key"></i>
                                             </span>
                                         </div>
-
-                                        <?php
-                                        $item = null;
-                                        $valor = null;
-                                        $ventas = ControladorVentas::ctrMostrarVentas($item, $valor);
-
-                                        if (!$ventas) {
-                                            echo '<input type="text" class="form-control" id="nuevaVenta" name="nuevaVenta"
-                                            value="100001" readonly>';
-                                        } else {
-                                            foreach ($ventas as $key => $venta) {
-                                                # code...
-                                            }
-                                            $codigo = $venta['codigo'] + 1;
-
-                                            echo '<input type="text" class="form-control" id="nuevaVenta" name="nuevaVenta"
-                                            value="' . $codigo . '" readonly>';
-                                        }
-
-                                        ?>
-
-
+                                        <input type="text" class="form-control" id="nuevaVenta" name="nuevaVenta"
+                                            value="123654845" readonly>
                                     </div>
                                 </div>
 
@@ -93,19 +71,6 @@
                                         <select class="form-control" id="seleccionarCliente" name="seleccionarCliente"
                                             required>
                                             <option value="">Seleccionar clientes</option>
-
-                                            <?php
-                                            $item = null;
-                                            $valor = null;
-
-                                            $clientes = ControladorClientes::ctrMostrarClientes($item, $valor);
-
-                                            foreach ($clientes as $key => $cliente) {
-                                                echo '<option value="' . $cliente['id'] . '">' . $cliente['nombre'] . '</option>';
-                                            }
-
-                                            ?>
-
                                         </select>
 
                                         <div class="input-group-prepend">
@@ -121,7 +86,40 @@
                                 </div>
 
                                 <!--Entrada agregar productos-->
-                                <div class="form-group row nuevoProducto">                               
+                                <div class="form-group row nuevoProducto">
+
+                                    <div class="col-md-6" style="padding-right:0px">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <button type="button" class="btn btn btn-danger btn-xs">
+                                                        <i class="fa fa-times"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control" id="agregarProducto"
+                                                name="agregarProducto" placeholder="Descripción del producto" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <input type="number" class="form-control" id="nuevaCantidadProducto"
+                                            name="nuevaCantidadProducto" min="1" placeholder="0" required>
+                                    </div>
+
+                                    <div class="col-md-3" style="padding-left: 0px;">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-dollar-sign"></i>
+                                                </span>
+                                            </div>
+
+                                            <input type="number" class="form-control" min="1" id="nuevoPrecioProducto"
+                                                name="nuevoPrecioProducto" placeholder="000000" readonly required>
+                                        </div>
+                                    </div>
+
                                 </div>
 
                                 <!--Boton agregart producto-->
@@ -217,18 +215,29 @@
                 <div class="card card-info card-outline direct-chat direct-chat-success shadow-sm">
                     <hr>
                     <div class="card-body" style="margin: 0px 5px 0px 5px;">
-                        <table class="table table-bordered table-striped dt-responsive tablaCrearVenta">
+                        <table class="table table-bordered table-striped dt-responsive tablas">
                             <thead>
                                 <tr>
                                     <th style="widht:10px;">#</th>
                                     <th>Imagen</th>
                                     <th style="widht:15px;">Código</th>
-                                    <th>Precio($)</th>
                                     <th>Descripción</th>
+                                    <th>Categoría</th>
                                     <th style="widht:15px;">Stock</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
+                            <tbody>
+                                <td>1</td>
+                                <td><img src="vistas/img/productos/default/anonymous.png" class="img-thumbnail" width="40px"></td>
+                                <td>102</td>
+                                <td>Plato Flotante para Allanadora</td>
+                                <td>EQUIPOS ELECTROMECÁNICOS</td>
+                                <td>20</td>
+                                <td>
+                                    <button type="button" class="btn btn-primary btn-xs">Agregar</button>
+                                </td>
+                            </tbody>
                         </table>
                     </div>
                 </div>
